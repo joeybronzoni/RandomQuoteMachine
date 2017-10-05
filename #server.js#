@@ -23,8 +23,8 @@ var qoutes = [{
   url: "",
   author: "",
   role: "",
-  tags: 900,
-  body: 2000
+  tags: "",
+  body: ""
 }, {
   url: "",
   author: "",
