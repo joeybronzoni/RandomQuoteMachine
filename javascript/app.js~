@@ -1,0 +1,74 @@
+
+// /*Global Variables==========================================*/
+  
+// // A $( document ).ready() block.
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+
+
+// const authKey      = "140bde443bed0f5bef299267d014c558",
+// //search parameters
+//       searchTerm   = "",
+//       numResults   = 1,
+// //variable to track number of qoutes
+//       qouteCounter = 0,
+//       queryURL     = "",
+// //URL Base
+//       queryURLBase = "https://favqs.com/api/",
+//       wholeQuery = queryURLBase + "qotd",
+//       myArray     = [];
+//   let obj = {};
+  
+// //=================================================================
+// function runQuery(queryURL) {
+//   $.ajax({
+//     url: queryURL ,//+ authKey,
+//     dataType:"json",
+//     method: "GET"})
+//     .done((data) => {
+//       var qoutes = JSON.stringify(data);
+//       jQuery.parseJSON(qoutes)
+//       alert(qoutes.qoute);
+//       // $.each(data, (key,value) => {
+//       // 	console.log(key, value);
+//       // });
+//     });
+// };
+//   $('#addQouteFunny').on('click', (e) => {
+//     e.preventDefault();
+//     runQuery(wholeQuery);
+//   });
+  
+``
+    
+
+  
+// //Functions=======================================================
+// function getQoutes(numQoutes, queryURL) {
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET",
+//     dataType: "jsonp",
+//     jsonCallback: "logResults"
+//   }).done ((res)=> {
+//     $("#display").append(a[0].content + "<p>— " + a[0].title + "</p>")
+//     console.log("this is the response",res);
+//   });
+// };getQoutes();
+// function renderQoutes() {
+//     $("#addQoute").on("click", function(event) {
+//         searchTerm = $("#animalInput").val().trim();
+
+//         //add searchTerm to the baseURL
+//         var newUrl = queryURLBase + "&q=" + searchTerm;
+//         // get number of giphs with numResults
+//         runQuery(numResults, newUrl);
+//         event.preventDefault();
+
+//         /* return false;*/ //I could also use return false instead of preventDefault method, but that is a hacky way of doing this. 
+//     });
+// };
+
+
+
+//});
