@@ -20,23 +20,17 @@ app.use("/assets", express.static(path.join(__dirname + '/assets')));
 
 // =============================================================
 var qoutes = [{
-  url: "",
-  author: "",
-  role: "",
-  tags: 900,
-  body: 2000
+  author: "Jim James",
+  tags: "Deep",
+  body: "'but I know there's someone that loves up above and want to fix you a dream. He wants to sit down and think. He wants to pour you a drink. And you wont feel a thing...you wont feel a thing.'",
 }, {
-  url: "",
-  author: "",
-  role: "",
-  tags: "",
-  body: ""
+  author: "James Woods",
+  tags: "Technology",
+  body: "'If someone is not tech savvy, I have no time for them. I've always been a big believer in looking forward. James Woods Time, Looking Forward'",
 }, {
-  url: "",
-  author: "",
-  role: "",
-  tags: "",
-  body: ""
+  author: "Richard Stallman",
+  tags: "Deep Technology",
+  body: "'The idea of copyright did not exist in ancient times, when authors frequently copied other authors at length in works of non-fiction. This practice was useful, and is the only way many authors' works have survived even in part.'"
 }];
 
 // Routes

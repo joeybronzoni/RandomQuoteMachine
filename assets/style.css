@@ -11,3 +11,16 @@ button{
   width:600px;
 
 }
+
+body .btn-primary {
+  background-color: #f8ed15;
+  border-color: #7bc143;
+  color: black; }
+body .btn-primary:hover, body .btn-primary:focus {
+  border-color: #6fb03a;
+  background-color:#304d78;
+  color: #FFF; }
+body .btn-primary:active, body .btn-primary:visited, body .btn-primary:active:focus, body .btn-primary:active:hover {
+  border-color: #639d34;
+  background-color: #639d34;
+  color: #FFF; }

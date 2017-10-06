@@ -55,9 +55,9 @@
 			    <div class="form-group">
 				<label for="sel1">Type:</label>
 				<select class="form-control" id="sel1">
-				    <option value=1>Funny</option>
-				    <option value=5 selected>Deep</option>
-				    <option value=10>Random</option>
+				    <option value="Funny">Funny</option>
+				    <option value="Deep" selected>Deep</option>
+				    <option value="Random">Random</option>
 				    
 				</select>
 			    </div>
@@ -69,8 +69,8 @@
 			    
 			    
 			    
-			    <button type="submit" class="btn btn-alert" id="searchBtn">Add Qoute</button>
-			    <button type="button" class="btn btn-alert">Clear</button>
+			    <button type="submit" class="btn btn-primary" id="searchBtn">Add Qoute</button>
+			    <button type="button" class="btn btn-primary">Clear</button>
 			    
 			</form>
 		    </div>
@@ -83,7 +83,7 @@
 		<div class="container" id="form">
 		    <form id="QouteForm">
 			<label for="qouteInput">Display Qoute Preview</label>
-			<button class="btn" id="addQoute" data-search="#">Get Qoute:<a href="#"></a></button>
+			<button class="btn btn-primary" id="addQoute" data-search="#">Get Qoute:<a href="#"></a></button>
 			
 		    </form>
 		    <div class="container display">
@@ -96,14 +96,14 @@
 
 
 	<div class="container">
-	<div class="panel-body well" id="qoutes">
-	    
-	    <button class="btn" id="addQouteDeep" data-search="#">Deep<a href="#"></a></button>
-	    <button class="btn" id="addQouteRandom" data-search="#">Random<a href="#"></a></button>
-	</div>
+	    <div class="panel-body well" id="qoutes">
+		<button class="btn btn-primary" id="funnyBtn" data-search="#">Funny<a href="#"></a></button>
+		<button class="btn btn-primary" id="deepBtn" data-search="#">Deep<a href="#"></a></button>
+		<button class="btn btn-primary" id="randomBtn" data-search="#">Random<a href="#"></a></button>
+	    </div>
 
-	<div id="randomQoute"></div>
-</div>
+	    <div id="randomQoute"></div>
+	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
