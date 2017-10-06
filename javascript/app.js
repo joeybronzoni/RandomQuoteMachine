@@ -9,7 +9,8 @@
 // A $( document ).ready() block.
 $( document ).ready(function() {
   console.log("ready");
-  $('#addQoute').on('click', function(e) {
+//get a random qoute from the quote of the day
+  $('#getQuote').on('click', function(e) {
     e.preventDefault();
     $.ajax({
       url: 'https://favqs.com/api/qotd',
@@ -22,18 +23,49 @@ $( document ).ready(function() {
       $(".display").html("<div id='newDiv'>"+ "<h1>"+results.author+"</h1>"+"<h2>"+results.tags+"</h2>"+"<p>"+results.body+"</p>"+   "</div>");
     });
   });
-});
+
+//------------------------------------------------------------------------------------/
+//------------------------------------------------------------------------------------/
+//this is for adding a qoute to the local api
+    $("#addBtn").on("click", function(event) {
+      event.preventDefault();
+      var newQuote = {
+        author: $("#author").val().trim(),
+        tags: $("#tags").val().trim(),
+        body: $("#body").val().trim(),
+      };
+      console.log("quotes here", newQuote);
+
+      // Question: What does this code do??
+      $.post("/api/new", newQuote)
+      
+      .done(function(data) {
+        console.log(data);
+        alert("Adding Quote...");
+      });
+    });
+
+// $.ajax({
+//       type: 'POST',
+//       data: 'id=17446&chru=0',
+//       success: function() { ... },
+//       error: function(){ ... },
+//       url: '/url/',
+//       cache:false
+//     });
+
 
 // search local api for qoutes
-$("#search-btn").on("click", function() {
-      var searchedCharacter = $("#character-search").val().trim();
+$("#funnyBtn").on("click", function() {
+  //this was labeled #search-button
+  var searchedQuote = $("#character-search").val().trim();
 
       searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
 
       $.get("/api/" + searchedCharacter, function(data) {
         console.log(data);
         if (data) {
-          $("#stats").show();
+          $("#randomQuote").show();
           $("#name").text(data.name);
           $("#role").text(data.role);
           $("#age").text(data.age);
@@ -50,23 +82,6 @@ $("#search-btn").on("click", function() {
 
 
 
-//this is for adding a qoute to the local api
-    $("#add_btn").on("click", function(event) {
-      event.preventDefault();
-      var newCharacter = {
-        name: $("#name").val().trim(),
-        role: $("#role").val().trim(),
-        age: $("#age").val().trim(),
-        forcePoints: $("#force-points").val().trim()
-      };
-
-      // Question: What does this code do??
-      $.post("/api/new", newCharacter)
-      .done(function(data) {
-        console.log(data);
-        alert("Adding character...");
-      });
-    });
 
 
 
@@ -76,3 +91,4 @@ $("#search-btn").on("click", function() {
 
 
 
+});

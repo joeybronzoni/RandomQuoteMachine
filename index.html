@@ -45,16 +45,16 @@
 			<h3 class="panel-title">Input Qoute information:</h3>
 		    </div>
 		    <div class="panel-body">
-			<form role="form">
+			<form method="POST" role="form">
 			    
 			    <div class="form-group">
-				<label for="search">Name:</label>
-				<input type="text" class="form-control" id="search">
+				<label for="author">Author:</label>
+				<input type="text" class="form-control" id="author">
 			    </div>
 			    
 			    <div class="form-group">
-				<label for="sel1">Type:</label>
-				<select class="form-control" id="sel1">
+				<label for="tags">Type:</label>
+				<select class="form-control" id="tags">
 				    <option value="Funny">Funny</option>
 				    <option value="Deep" selected>Deep</option>
 				    <option value="Random">Random</option>
@@ -63,14 +63,14 @@
 			    </div>
 
 			    <div class="form-group">
-				<label for="startYear">Qoute:</label>
-				<input type="text" class="form-control" id="startYear">
+				<label for="body">Qoute:</label>
+				<input type="text" class="form-control" id="body">
 			    </div>
 			    
 			    
 			    
-			    <button type="submit" class="btn btn-primary" id="searchBtn">Add Qoute</button>
-			    <button type="button" class="btn btn-primary">Clear</button>
+			    <button type="submit" class="btn btn-primary btn-md" id="addBtn">Add Quote</button>
+			    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-fire"></span>Clear</button>
 			    
 			</form>
 		    </div>
@@ -83,7 +83,7 @@
 		<div class="container" id="form">
 		    <form id="QouteForm">
 			<label for="qouteInput">Display Qoute Preview</label>
-			<button class="btn btn-primary" id="addQoute" data-search="#">Get Qoute:<a href="#"></a></button>
+			<button class="btn btn-primary" id="getQuote" data-search="#">Get Qoute:<a href="#"></a></button>
 			
 		    </form>
 		    <div class="container display">
@@ -97,18 +97,17 @@
 
 	<div class="container">
 	    <div class="panel-body well" id="qoutes">
-		<button class="btn btn-primary" id="funnyBtn" data-search="#">Funny<a href="#"></a></button>
+		<button class="btn btn-primary" id="add_btn" data-search="#">Funny<a href="#"></a></button>
 		<button class="btn btn-primary" id="deepBtn" data-search="#">Deep<a href="#"></a></button>
 		<button class="btn btn-primary" id="randomBtn" data-search="#">Random<a href="#"></a></button>
 	    </div>
 
-	    <div id="randomQoute"></div>
+	    <div id="randomQuote"></div>
 	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
-	
-	<script type="text/javascript" src="javascript/app.js"></script>
+		<script type="text/javascript" src="javascript/app.js"></script>
     </body>
 
 </html>

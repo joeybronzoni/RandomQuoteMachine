@@ -3,7 +3,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-
+var request = require('request');
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -19,15 +19,18 @@ app.use("/assets", express.static(path.join(__dirname + '/assets')));
 
 
 // =============================================================
-var qoutes = [{
+var quotes = [{
+  routeName: "jimjames",
   author: "Jim James",
   tags: "Deep",
   body: "'but I know there's someone that loves up above and want to fix you a dream. He wants to sit down and think. He wants to pour you a drink. And you wont feel a thing...you wont feel a thing.'",
 }, {
+  routeName: "jameswoods",
   author: "James Woods",
   tags: "Technology",
   body: "'If someone is not tech savvy, I have no time for them. I've always been a big believer in looking forward. James Woods Time, Looking Forward'",
 }, {
+  routeName: "richardstallman",
   author: "Richard Stallman",
   tags: "Deep Technology",
   body: "'The idea of copyright did not exist in ancient times, when authors frequently copied other authors at length in works of non-fiction. This practice was useful, and is the only way many authors' works have survived even in part.'"
@@ -46,32 +49,32 @@ app.get("/add", function(req, res) {
 });
 
 // Search for Specific Character (or all characters) - provides JSON
-app.get("/api/:qoutes?", function(req, res) {
-  var chosen = req.params.qoutes;
+app.get("/api/:quotes?", function(req, res) {
+  var chosen = req.params.quotes;
 
   if (chosen) {
     console.log(chosen);
 
-    for (var i = 0; i < qoutes.length; i++) {
-      if (chosen === qoutes[i].routeName) {
-       return res.json(qoutes[i]);
+    for (var i = 0; i < quotes.length; i++) {
+      if (chosen === quotes[i].routeName) {
+       return res.json(quotes[i]);
       }
     }
     return res.json(false);
   }
-  return res.json(qoutes);
+  return res.json(quotes);
 });
 
 // Create New Characters - takes in JSON input
 app.post("/api/new", function(req, res) {
-  var newcharacter = req.body;
-  newQoute.routeName = newQoute.author.replace(/\s+/g, "").toLowerCase();
+  var newQuote = req.body;
+  newQuote.routname = newQuote.author.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newQoute);
+  console.log(newQuote);
 
-  characters.push(newQoute);
+  quotes.push(newQuote);
 
-  res.json(newqoute);
+  res.json(newQuote);
 });
 
 // Starts the server to begin listening
