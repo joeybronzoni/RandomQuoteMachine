@@ -86,7 +86,7 @@
 			
 		    </form>
 		    <div class="container display">
-			
+
 			
 		    </div>
 		</div>
@@ -96,9 +96,22 @@
 
 	<div class="container">
 	    <div class="panel-body well" id="qoutes">
-		<button class="btn btn-primary" id="add_btn" data-search="#">Funny<a href="#"></a></button>
+		<button class="btn btn-primary" id="funnyBtn" data-search="#">Funny<a href="#"></a></button>
 		<button class="btn btn-primary" id="deepBtn" data-search="#">Deep<a href="#"></a></button>
 		<button class="btn btn-primary" id="randomBtn" data-search="#">Random<a href="#"></a></button>
+		<div class="panel panel-default">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><strong>Qoute Search by Author</strong></h3>
+		    </div>
+		    <div class="panel-body">
+			<input type="text" id="character-search" class="form-control">
+			<br>
+			<div class="text-right">
+			    <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="glyphicon glyphicon-search"></span> Search for quote by tag or author.</button>
+
+        </div>
+    </div>
+</div>
 	    </div>
 
 	    <div id="randomQuote"></div>
@@ -132,24 +145,45 @@ $(document).ready(function() {
                 "</div>");
         });
     });
-
-    // search local api for qoutes
+        // search local api for qoutes by tag
     $("#funnyBtn").on("click", function() {
         //this was labeled #search-button
         var searchedQuote = $("#character-search").val().trim();
 
-        searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+        searchedQuote = searchedQuote.replace(/\s+/g, "").toLowerCase();
 
-        $.get("/api/" + searchedCharacter, function(data) {
+        $.get("/api/" + searchedQuote, function(data) {
             console.log(data);
             if (data) {
                 $("#randomQuote").show();
-                $("#name").text(data.name);
-                $("#role").text(data.role);
-                $("#age").text(data.age);
+                $("#name").text(data.author);
+                $("#role").text(data.tags);
+                $("#age").text(data.body);
                 $("#force-points").text(data.forcePoints);
             } else {
-                $("#name").text("The force is not strong with this one. Your character was not found.");
+                $("#name").text("Nothing found matching that author but you can be the one that enters it.");
+                $("#stats").hide();
+            }
+        });
+    });
+
+    // search local api for qoutes
+    $("#search-btn").on("click", function() {
+        //this was labeled #search-button
+        var searchedQuote = $("#character-search").val().trim();
+
+        searchedQuote = searchedQuote.replace(/\s+/g, "").toLowerCase();
+
+        $.get("/api/" + searchedQuote, function(data) {
+            console.log(data);
+            if (data) {
+                $("#randomQuote").show();
+                $("#name").text(data.author);
+                $("#role").text(data.tags);
+                $("#age").text(data.body);
+                $("#force-points").text(data.forcePoints);
+            } else {
+                $("#name").text("Nothing found matching that author but you can be the one that enters it.");
                 $("#stats").hide();
             }
         });

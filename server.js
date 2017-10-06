@@ -51,7 +51,7 @@ app.get("/add", function(req, res) {
 // Search for Specific Character (or all characters) - provides JSON
 app.get("/api/:quotes?", function(req, res) {
   var chosen = req.params.quotes;
-
+  console.log("chosen", chosen);
   if (chosen) {
     console.log(chosen);
 
