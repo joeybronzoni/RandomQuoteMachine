@@ -45,7 +45,7 @@
 			<h3 class="panel-title">Input Qoute information:</h3>
 		    </div>
 		    <div class="panel-body">
-			<form method="POST" role="form" id="inform">
+			<form method="POST" role="form">
 			    
 			    <div class="form-group">
 				<label for="author">Author:</label>
@@ -54,11 +54,12 @@
 			    
 			    <div class="form-group">
 				<label for="tags">Type:</label>
-				<select class="form-control" id="tags">
-				    <option value="Funny">Funny</option>
-				    <option value="Deep" selected>Deep</option>
-				    <option value="Random">Random</option>
-				</select>
+				<!-- <select class="form-control" id="tags"> -->
+				<!--     <option value="Funny">Funny</option> -->
+				<!--     <option value="Deep" selected>Deep</option> -->
+				<!--     <option value="Random">Random</option> -->
+				    <input type="text" class="form-control" id="tags">
+				<!-- </select> -->
 			    </div>
 
 			    <div class="form-group">
@@ -107,53 +108,6 @@
 
 	<script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
 	<script type="text/javascript">
-// A $( document ).ready() block.
-$(document).ready(function() {
-    console.log("ready");
-    //get a random qoute from the quote of the day
-    $('#getQuote').on('click', function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: 'https://favqs.com/api/qotd',
-            method: "GET",
-            dataType: "json"
-        }).done((res) => {
-            console.log(res.quote);
-            let results = res.quote;
-            let me = $.parseHTML(results)
-            //console.log(results)
-            $(".display").html("<div id='newDiv'>" +
-                "<h1>" +
-                results.author +
-                "</h1>" +
-                "<h2>" +
-                results.tags + "</h2>" +
-                "<p>" + results.body + "</p>" +
-                "</div>");
-        });
-    });
-
-    // search local api for qoutes
-    $("#funnyBtn").on("click", function() {
-        //this was labeled #search-button
-        var searchedQuote = $("#character-search").val().trim();
-
-        searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
-
-        $.get("/api/" + searchedCharacter, function(data) {
-            console.log(data);
-            if (data) {
-                $("#randomQuote").show();
-                $("#name").text(data.name);
-                $("#role").text(data.role);
-                $("#age").text(data.age);
-                $("#force-points").text(data.forcePoints);
-            } else {
-                $("#name").text("The force is not strong with this one. Your character was not found.");
-                $("#stats").hide();
-            }
-        });
-    });
 //this is for adding a qoute to the local api
 $("#addBtn").on("click", function(event) {
     event.preventDefault();
@@ -172,7 +126,8 @@ $("#addBtn").on("click", function(event) {
 })
 
 
-});	</script>
+
+	</script>
     </body>
 
 </html>

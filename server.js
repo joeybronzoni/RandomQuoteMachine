@@ -68,7 +68,7 @@ app.get("/api/:quotes?", function(req, res) {
 // Create New Characters - takes in JSON input
 app.post("/api/new", function(req, res) {
   var newQuote = req.body;
-  newQuote.routname = newQuote.author.replace(/\s+/g, "").toLowerCase();
+  newQuote.routName = newQuote.author.replace(/\s+/g, "").toLowerCase();
 
   console.log(newQuote);
 
