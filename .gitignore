@@ -1,3 +1,13 @@
+
+#ignore #*# autosaved files
+#*#
+
+#ignore autosaved files
+*~
+
+#ignore .tern-port
+*.tern*
+
 # Logs
 logs
 *.log
